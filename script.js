@@ -84,6 +84,65 @@ const buscarPaisesPorMoneda = async (e) => {
         console.log(error);
     }
 }
+const buscarPaisesPorIdioma = async (e) => {
+    e.preventDefault();
+    let idioma = document.getElementById('idiomaInput').value;
+    if (idioma === '') {
+        alert('Debe ingresar el nombre de un idioma.');
+        return;
+    }
+
+    const url = `https://restcountries.com/v3.1/lang/${idioma}`;
+
+    try {
+        const respuesta = await fetch(url);
+
+        if (respuesta.ok) {
+            const data = await respuesta.json();
+
+            tablaPaisesIdioma.innerHTML = '';
+
+            if (data.length > 0) {
+                const tituloPais = document.createElement('th');
+                tituloPais.textContent = 'País';
+
+                const tituloPoblacion = document.createElement('th');
+                tituloPoblacion.textContent = 'Población';
+
+                const tituloTr = document.createElement('tr');
+                tituloTr.appendChild(tituloPais);
+                tituloTr.appendChild(tituloPoblacion);
+                tablaPaisesIdioma.appendChild(tituloTr);
+
+                data.forEach(pais => {
+                    const tr = document.createElement('tr');
+
+                    const tdPais = document.createElement('td');
+                    tdPais.textContent = pais.name.common;
+
+                    const tdPoblacion = document.createElement('td');
+                    tdPoblacion.textContent = pais.population;
+
+                    tr.appendChild(tdPais);
+                    tr.appendChild(tdPoblacion);
+
+                    tablaPaisesIdioma.appendChild(tr);
+                });
+
+                document.getElementById('estadoIdioma').innerText = '';
+                tablaPaisesIdioma.style.display = 'table';
+            } else {
+                document.getElementById('estadoIdioma').innerText = 'No se encontraron países que hablen ese idioma.';
+                tablaPaisesIdioma.style.display = 'none';
+            }
+        } else {
+            document.getElementById('estadoIdioma').innerText = 'No se encontraron países que hablen ese idioma.';
+            tablaPaisesIdioma.style.display = 'none';
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 formulario.addEventListener('submit', consultarPais);
 monedaForm.addEventListener('submit', buscarPaisesPorMoneda);
