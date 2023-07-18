@@ -1,7 +1,7 @@
 const formulario = document.getElementById('paisForm');
-const tabla = document.querySelector('table');
-
-tabla.style.display = 'none';
+const tabla = document.getElementById('paisTabla');
+const tablaPaisesMoneda = document.getElementById('monedaTabla');
+const tablaPaisesIdioma = document.getElementById('idiomaTabla');
 
 const consultarPais = async (e) => {
     e.preventDefault();
