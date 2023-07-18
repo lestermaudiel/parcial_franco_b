@@ -7,7 +7,7 @@ const consultarPais = async (e) => {
     e.preventDefault();
     let name = document.getElementById('paisInput').value;
     if (name === '') {
-        alert('Debe ingresar el nombre de un país.');
+        alert('Debe ingresar el nombre de un país valido en ingles');
         return;
     }
 
@@ -32,7 +32,7 @@ const consultarPais = async (e) => {
             document.getElementById('estado').innerText = 'País encontrado';
             tabla.style.display = '';
         } else {
-            document.getElementById('estado').innerText = 'País no encontrado';
+            document.getElementById('estado').innerText = 'Ingrese el nombre de un Pais en Ingles';
         }
     } catch (error) {
         console.log(error);
@@ -88,7 +88,7 @@ const buscarPaisesPorIdioma = async (e) => {
     e.preventDefault();
     let idioma = document.getElementById('idiomaInput').value;
     if (idioma === '') {
-        alert('Debe ingresar el nombre de un idioma.');
+        alert('Debe ingresar el nombre de un idioma en ingles.');
         return;
     }
 
