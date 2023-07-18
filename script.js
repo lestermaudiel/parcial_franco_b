@@ -87,3 +87,4 @@ const buscarPaisesPorMoneda = async (e) => {
 
 formulario.addEventListener('submit', consultarPais);
 monedaForm.addEventListener('submit', buscarPaisesPorMoneda);
+idiomaForm.addEventListener('submit', buscarPaisesPorIdioma);
