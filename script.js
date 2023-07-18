@@ -107,7 +107,7 @@ const buscarPaisesPorIdioma = async (e) => {
                 tituloPais.textContent = 'País';
 
                 const tituloPoblacion = document.createElement('th');
-                tituloPoblacion.textContent = 'Población';
+                tituloPoblacion.textContent = 'Población que habla el Idioma';
 
                 const tituloTr = document.createElement('tr');
                 tituloTr.appendChild(tituloPais);
