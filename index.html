@@ -1,82 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PARCIAL</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <h1>PAISES DEL MUNDO</h1>
-    <h2>CONSULTA GENERAL DE PAIS</h2>
-    <form id="paisForm">
-        <input type="text" name="pais" id="paisInput">
-        <button type="submit">Consultar</button> 
-    </form>
-    <br>
-    <p id="estado"></p>
-    <table id="paisTabla" border="1px solid">
-        <thead>
-            <tr>
-                <th>DATO</th>
-                <th>VALOR</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>PAIS</td>
-                <td id="nombrePais"></td>
-            </tr>
-            <tr>
-                <td>CAPITAL</td>
-                <td id="capitalPais"></td>
-            </tr>
-            <tr>
-                <td>IDIOMA</td>
-                <td id="idiomaPais"></td>
-            </tr>
-            <tr>
-                <td>BANDERA</td>
-                <td><img src="" alt="" id="imagenBandera"></td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="container larger">
+        <h1>PAISES DEL MUNDO</h1>
+        <h2>CONSULTA GENERAL DE PAIS</h2>
+        <form id="paisForm">
+            <input type="text" name="pais" id="paisInput">
+            <button type="submit">Consultar</button>
+        </form>
+        <br>
+        <p id="estado"></p>
+        <table id="paisTabla" border="1px solid">
+            <thead>
+                <tr>
+                    <th>DATO</th>
+                    <th>VALOR</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>PAIS</td>
+                    <td id="nombrePais"></td>
+                </tr>
+                <tr>
+                    <td>CAPITAL</td>
+                    <td id="capitalPais"></td>
+                </tr>
+                <tr>
+                    <td>IDIOMA</td>
+                    <td id="idiomaPais"></td>
+                </tr>
+                <tr>
+                    <td>BANDERA</td>
+                    <td><img src="" alt="" id="imagenBandera"></td>
+                </tr>
+            </tbody>
+        </table>
 
-    <h2>Buscar Países por Moneda</h2>
-    <form id="monedaForm">
-        <input type="text" name="moneda" id="monedaInput">
-        <button type="submit">Buscar</button> 
-    </form>
-    <br>
-    <p id="estadoMoneda"></p>
-    <table id="monedaTabla" border="1px solid">
-        <thead>
-            <tr>
-                <th>Países que utilizan</th>
-            </tr>
-        </thead>
-        <tbody id="tablaPaisesMoneda"></tbody>
-    </table>
-    
+        <h2>Buscar Países por Moneda</h2>
+        <form id="monedaForm">
+            <input type="text" name="moneda" id="monedaInput">
+            <button type="submit">Buscar</button>
+        </form>
+        <br>
+        <p id="estadoMoneda"></p>
+        <table id="monedaTabla" border="1px solid">
+            <thead>
+                <tr>
+                    <th>Países que utilizan</th>
+                </tr>
+            </thead>
+            <tbody id="tablaPaisesMoneda"></tbody>
+        </table>
 
-    <h2>Ingresar Idioma y Obtener Países y Población</h2>
-    <form id="idiomaForm">
-        <input type="text" name="idioma" id="idiomaInput">
-        <button type="submit">Buscar</button> 
-    </form>
-    <br>
-    <p id="estadoIdioma"></p>
-    <table id="idiomaTabla" border="1px solid">
-        <thead>
-            <tr>
-                <th>País</th>
-                <th>Población</th>
-            </tr>
-        </thead>
-        <tbody id="tablaPaisesIdioma"></tbody>
-    </table>
 
-    <script src="script.js"></script> 
+        <h2>Ingresar Idioma y Obtener Países y Población</h2>
+        <form id="idiomaForm">
+            <input type="text" name="idioma" id="idiomaInput">
+            <button type="submit">Buscar</button>
+        </form>
+        <br>
+        <p id="estadoIdioma"></p>
+        <table id="idiomaTabla" border="1px solid">
+            <thead>
+                <tr>
+                    <th>País</th>
+                    <th>Población</th>
+                </tr>
+            </thead>
+            <tbody id="tablaPaisesIdioma"></tbody>
+        </table>
+    </div>
+
+    <script src="script.js"></script>
     <script>
         // Ocultar las tablas al cargar la página
         document.getElementById('paisTabla').style.display = 'none';
@@ -84,4 +88,6 @@
         document.getElementById('idiomaTabla').style.display = 'none';
     </script>
 </body>
+
 </html>
+
