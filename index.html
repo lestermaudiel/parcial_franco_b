@@ -5,17 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PARCIAL</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 <body>
     <h1>PAISES DEL MUNDO</h1>
     <h2>CONSULTA GENERAL DE PAIS</h2>
     <form id="paisForm">
-        <input type="text" name="pais" id="paisInput" placeholder="INGRESE EL NOMBRE DE UN PAIS">
+        <input type="text" name="pais" id="paisInput">
         <button type="submit">Consultar</button> 
     </form>
     <br>
     <p id="estado"></p>
-    <table border="1px solid">
+    <table id="paisTabla" border="1px solid">
         <thead>
             <tr>
                 <th>DATO</th>
@@ -41,26 +55,28 @@
             </tr>
         </tbody>
     </table>
-    <h2>BUSCAR PAIS POR MONEDA.</h2>
+
+    <h2>Buscar Países por Moneda</h2>
     <form id="monedaForm">
-        <input type="text" name="moneda" id="monedaInput" placeholder="INGRESE UN TIPO DE MONEDA">
-        <button type="submit">Consultar</button> 
+        <input type="text" name="moneda" id="monedaInput">
+        <button type="submit">Buscar</button> 
     </form>
     <br>
     <p id="estadoMoneda"></p>
     <table id="monedaTabla" border="1px solid">
         <thead>
             <tr>
-                <th>Países que utilizan:</th>
+                <th>Países que utilizan</th>
             </tr>
         </thead>
         <tbody id="tablaPaisesMoneda"></tbody>
     </table>
+    
 
-    <h2>OBTENER PAIS Y POBLACION DE LAS PERSONAS QUE HABLAN UN IDIOMA</h2>
+    <h2>Ingresar Idioma y Obtener Países y Población</h2>
     <form id="idiomaForm">
-        <input type="text" name="idioma" id="idiomaInput" placeholder="INGRESE UN IDIOMA">
-        <button type="submit">Consultar</button> 
+        <input type="text" name="idioma" id="idiomaInput">
+        <button type="submit">Buscar</button> 
     </form>
     <br>
     <p id="estadoIdioma"></p>
@@ -68,13 +84,15 @@
         <thead>
             <tr>
                 <th>País</th>
-                <th>Población que Habla el Idioma</th>
+                <th>Población</th>
             </tr>
         </thead>
         <tbody id="tablaPaisesIdioma"></tbody>
     </table>
+
     <script src="script.js"></script> 
     <script>
+        // Ocultar las tablas al cargar la página
         document.getElementById('paisTabla').style.display = 'none';
         document.getElementById('monedaTabla').style.display = 'none';
         document.getElementById('idiomaTabla').style.display = 'none';

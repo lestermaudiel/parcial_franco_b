@@ -7,7 +7,7 @@ const consultarPais = async (e) => {
     e.preventDefault();
     let name = document.getElementById('paisInput').value;
     if (name === '') {
-        alert('Debe ingresar el nombre de un país valido en ingles');
+        alert('Debe ingresar el nombre de un país.');
         return;
     }
 
@@ -30,14 +30,16 @@ const consultarPais = async (e) => {
             imagenBandera.alt = `Bandera de ${pais.name.common}`;
 
             document.getElementById('estado').innerText = 'País encontrado';
-            tabla.style.display = '';
+            tabla.style.display = 'table';
         } else {
-            document.getElementById('estado').innerText = 'Ingrese el nombre de un Pais en Ingles';
+            document.getElementById('estado').innerText = 'País no encontrado';
+            tabla.style.display = 'none';
         }
     } catch (error) {
         console.log(error);
     }
 }
+
 const buscarPaisesPorMoneda = async (e) => {
     e.preventDefault();
     let moneda = document.getElementById('monedaInput').value;
@@ -84,11 +86,12 @@ const buscarPaisesPorMoneda = async (e) => {
         console.log(error);
     }
 }
+
 const buscarPaisesPorIdioma = async (e) => {
     e.preventDefault();
     let idioma = document.getElementById('idiomaInput').value;
     if (idioma === '') {
-        alert('Debe ingresar el nombre de un idioma en ingles.');
+        alert('Debe ingresar el nombre de un idioma.');
         return;
     }
 
@@ -107,7 +110,7 @@ const buscarPaisesPorIdioma = async (e) => {
                 tituloPais.textContent = 'País';
 
                 const tituloPoblacion = document.createElement('th');
-                tituloPoblacion.textContent = 'Población que habla el Idioma';
+                tituloPoblacion.textContent = 'Población';
 
                 const tituloTr = document.createElement('tr');
                 tituloTr.appendChild(tituloPais);
