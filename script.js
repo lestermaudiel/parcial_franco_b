@@ -11,7 +11,7 @@ const consultarPais = async (e) => {
         return;
     }
 
-    const url = `https://restcountries.com/${nombrePais}`;
+    const url = `https://restcountries.com/${name}`;
 
     try {
         const respuesta = await fetch(url);
