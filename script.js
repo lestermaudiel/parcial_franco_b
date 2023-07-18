@@ -38,5 +38,52 @@ const consultarPais = async (e) => {
         console.log(error);
     }
 }
+const buscarPaisesPorMoneda = async (e) => {
+    e.preventDefault();
+    let moneda = document.getElementById('monedaInput').value;
+    if (moneda === '') {
+        alert('Debe ingresar el nombre de una moneda.');
+        return;
+    }
+
+    const url = `https://restcountries.com/v3.1/currency/${moneda}`;
+
+    try {
+        const respuesta = await fetch(url);
+
+        if (respuesta.ok) {
+            const data = await respuesta.json();
+
+            tablaPaisesMoneda.innerHTML = '';
+
+            if (data.length > 0) {
+                const titulo = document.createElement('tr');
+                const th = document.createElement('th');
+                th.textContent = `Países que utilizan ${moneda}:`;
+                titulo.appendChild(th);
+                tablaPaisesMoneda.appendChild(titulo);
+
+                data.forEach(pais => {
+                    const tr = document.createElement('tr');
+                    const td = document.createElement('td');
+                    td.textContent = pais.name.common;
+                    tr.appendChild(td);
+                    tablaPaisesMoneda.appendChild(tr);
+                });
+                document.getElementById('estadoMoneda').innerText = '';
+                tablaPaisesMoneda.style.display = 'table';
+            } else {
+                document.getElementById('estadoMoneda').innerText = 'No se encontraron países que utilicen esa moneda.';
+                tablaPaisesMoneda.style.display = 'none';
+            }
+        } else {
+            document.getElementById('estadoMoneda').innerText = 'No se encontraron países que utilicen esa moneda.';
+            tablaPaisesMoneda.style.display = 'none';
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 formulario.addEventListener('submit', consultarPais);
+monedaForm.addEventListener('submit', buscarPaisesPorMoneda);
